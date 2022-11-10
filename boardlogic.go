@@ -3,14 +3,23 @@ package main
 // Erwartet ein Spielfeld, eine Zeilennummer und ein Symbol.
 // Liefert true, falls die entsprechende Zeile nur das Symbol enthält.
 func RowContainsOnly(board [][]string, row int, symbol string) bool {
-	// TODO
+	// return board[row][0] == symbol && board[row][1] == symbol && board[row][2] == symbol
+	for _, sym := range board[row] {
+		if sym != symbol {
+			return false
+		}
+	}
 	return true
 }
 
 // Erwartet ein Spielfeld, eine Spaltennummer und ein Symbol.
 // Liefert true, falls die entsprechende Zeile nur das Symbol enthält.
 func ColumnContainsOnly(board [][]string, col int, symbol string) bool {
-	// TODO
+	for _, line := range board {
+		if line[col] != symbol {
+			return false
+		}
+	}
 	return true
 }
 

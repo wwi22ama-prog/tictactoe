@@ -8,8 +8,24 @@ func GameOver(board [][]string) bool {
 
 // Erwartet ein Spielfeld. Liefert true, falls Spieler X gewonnen hat.
 func PlayerXWins(board [][]string) bool {
-	// TODO
-	return true
+
+	return RowContainsOnly(board, 0, "X") ||
+		RowContainsOnly(board, 1, "X") ||
+		RowContainsOnly(board, 2, "X") ||
+		ColumnContainsOnly(board, 0, "X") ||
+		ColumnContainsOnly(board, 1, "X") ||
+		ColumnContainsOnly(board, 2, "X") ||
+		Diag1ContainsOnly(board, "X") ||
+		Diag2ContainsOnly(board, "X")
+	/*
+	   	for i := range board {
+	   		if RowContainsOnly(board, i, "X") || ColumnContainsOnly(board, i, "X") {
+	   			return true
+	   		}
+	   	}
+
+	   return Diag1ContainsOnly(board, "X") || Diag2ContainsOnly(board, "X")
+	*/
 }
 
 // Erwartet ein Spielfeld. Liefert true, falls Spieler O gewonnen hat.
